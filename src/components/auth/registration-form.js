@@ -2,9 +2,9 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {Redirect} from 'react-router-dom';// 
 import {registerUser} from '../../actions/users';
-import { GoogleLogin } from 'react-google-login-component';
-import { FacebookLogin } from 'react-facebook-login-component';
-import {socialLogin, login} from '../../actions/auth';
+// import { GoogleLogin } from 'react-google-login-component';
+// import { FacebookLogin } from 'react-facebook-login-component';
+import {login} from '../../actions/auth';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 import { connect } from 'react-redux';
 
@@ -22,15 +22,15 @@ export class RegistrationForm extends React.Component {
     }
   }
 
-  responseGoogle (googleUser) {
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log({accessToken: id_token});
-    return this.props.dispatch(socialLogin(id_token, 'google'))
-  }
+  // responseGoogle (googleUser) {
+  //   var id_token = googleUser.getAuthResponse().id_token;
+  //   console.log({accessToken: id_token});
+  //   return this.props.dispatch(socialLogin(id_token, 'google'))
+  // }
 
-  responseFacebook (response) {
-    return this.props.dispatch(socialLogin(response.accessToken, 'facebook'))
-  }
+  // responseFacebook (response) {
+  //   return this.props.dispatch(socialLogin(response.accessToken, 'facebook'))
+  // }
 
   onSubmit(values) {
     const {email, password, firstName, lastName} = values;
@@ -60,30 +60,6 @@ export class RegistrationForm extends React.Component {
         <div className="registration-container">
           <div className="welcome-msg">
             <h4>Welcome to News Spot - Let's get started</h4>
-          </div>
-          <div className="social-reg">
-          <div className="fb-button">
-              <FacebookLogin socialId="1989958031254651"
-                          language="en_US"
-                          scope="public_profile,email"
-                          responseHandler={this.responseFacebook.bind(this)}
-                          xfbml={true}
-                          fields="id,email,name"
-                          version="v2.5"
-                          className="facebook-login"
-                          buttonText="Connect With Facebook"/>
-            </div>
-            <div className="google-button">
-              <GoogleLogin socialId="1013252237653-lobmsullofdr8n94saqon5fi77gkp8mb.apps.googleusercontent.com"
-                          className="google-login"
-                          scope="profile"
-                          fetchBasicProfile={true}
-                          responseHandler={this.responseGoogle.bind(this)}
-                          buttonText="Connect With Google"/>
-            </div>
-          </div>
-          <div className="divider">
-            <h4>Or sign up with</h4>
           </div>
           <div className="registration-div">
             <form className="registration-form"

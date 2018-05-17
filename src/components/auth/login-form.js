@@ -4,7 +4,7 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {Redirect} from 'react-router-dom';
 import {required, nonEmpty} from '../../validators';
-import {socialLogin, login} from '../../actions/auth';
+import {login} from '../../actions/auth';
 import AppDescription from './app-description.js';
 import { connect } from 'react-redux';
 
