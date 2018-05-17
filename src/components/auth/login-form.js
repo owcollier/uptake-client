@@ -1,6 +1,6 @@
 import React from 'react';
-import { GoogleLogin } from 'react-google-login-component';
-import { FacebookLogin } from 'react-facebook-login-component';
+// import { GoogleLogin } from 'react-google-login-component';
+// import { FacebookLogin } from 'react-facebook-login-component';
 import {Field, reduxForm, focus} from 'redux-form';
 import {Redirect} from 'react-router-dom';
 import {required, nonEmpty} from '../../validators';
@@ -12,14 +12,14 @@ import '../../styles/login-form.css';
 
 export class LoginForm extends React.Component {
 
-  responseGoogle (googleUser) {
-    var id_token = googleUser.getAuthResponse().id_token;
-    return this.props.dispatch(socialLogin(id_token, 'google'))
-  }
+  // responseGoogle (googleUser) {
+  //   var id_token = googleUser.getAuthResponse().id_token;
+  //   return this.props.dispatch(socialLogin(id_token, 'google'))
+  // }
 
-  responseFacebook (response) {
-    return this.props.dispatch(socialLogin(response.accessToken, 'facebook'))
-  }
+  // responseFacebook (response) {
+  //   return this.props.dispatch(socialLogin(response.accessToken, 'facebook'))
+  // }
   
   onSubmit(values) {
     return this.props.dispatch(login(values.email, values.password));
@@ -51,30 +51,6 @@ export class LoginForm extends React.Component {
             Login or <a className="signup-link" href="/register">Signup</a>
           </h4>
           <div className="login-container">
-            <div className="social-logins">
-              <div className="fb-button">
-                <FacebookLogin socialId="1989958031254651"
-                            language="en_US"
-                            scope="public_profile,email"
-                            responseHandler={this.responseFacebook.bind(this)}
-                            xfbml={true}
-                            fields="id,email,name"
-                            version="v2.5"
-                            className="facebook-login"
-                            buttonText="Connect With Facebook"/>
-              </div>
-              <div className="google-button">
-                <GoogleLogin socialId="1013252237653-lobmsullofdr8n94saqon5fi77gkp8mb.apps.googleusercontent.com"
-                            className="google-login"
-                            scope="profile"
-                            fetchBasicProfile={true}
-                            responseHandler={this.responseGoogle.bind(this)}
-                            buttonText="Connect With Google"/>
-              </div>
-            </div>
-            <div className="divider">
-              <div className="or"><span>or</span></div>
-            </div>
             <form
               className="login-form"
               onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
