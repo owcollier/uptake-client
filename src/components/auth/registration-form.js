@@ -95,7 +95,7 @@ export class RegistrationForm extends React.Component {
                 <Field
                   placeholder="Password"
                   name="password"
-                  component="Input" 
+                  component="input" 
                   type="password"
                   id="createpw"
                   validate={[required, passwordLength, isTrimmed]}   />
@@ -104,7 +104,7 @@ export class RegistrationForm extends React.Component {
                 <Field
                   placeholder="Confirm Password"
                   name="passwordconfirm"
-                  component="Input"
+                  component="input"
                   type="password"
                   id="confirmpw"
                   validate={[required, nonEmpty, matchesPassword]}    />
