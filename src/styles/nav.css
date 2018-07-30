@@ -47,7 +47,7 @@
 .nav-desc {
   order: 3;
   display: flex;
-  font-family: 'Merienda';
+  font-family: "Ubuntu", sans-serif;
   color: #f9f8fd;
   width: 25%;
   align-items: center;
