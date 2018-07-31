@@ -12,6 +12,17 @@ import '../../styles/login-form.css';
 
 export class LoginForm extends React.Component {
 
+  constructor(props) {
+    super(props);
+      this.state = {
+        testLogin: 'hidden'
+      }
+  }
+
+  toggleTestLoginInfo() {
+    console.log('heyo');
+  }
+
   // responseGoogle (googleUser) {
   //   var id_token = googleUser.getAuthResponse().id_token;
   //   return this.props.dispatch(socialLogin(id_token, 'google'))
